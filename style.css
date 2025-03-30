@@ -2,12 +2,15 @@ html, body {
     height: 100%;
     margin: 0;
     display: flex;
+    padding: 0;
     flex-direction: column;
+    font-family: Arial, sans-serif;
 }
 
 /* Main content pushes the footer down */
 main {
     flex: 1;    
+    padding: 70px 20px 20px;
 }
 
 /* Header Container */
@@ -23,6 +26,7 @@ header {
     align-items: center;
     justify-content: space-between;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 /* Logo and Hotel Name */
@@ -80,6 +84,31 @@ nav ul li a {
 nav ul li a:hover {
     background: #555;
     border-radius: 5px;
+}
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        position: absolute;
+        background: #333;
+        width: 100%;
+        top: 50px;
+        left: 0;
+        display: none;
+    }
+    
+    nav ul li {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-active {
+        display: flex;
+    }
 }
 
 .gallery {
@@ -151,7 +180,11 @@ nav ul li a:hover {
     color: #666;
     font-size: 16px;
 }
-
+@media (max-width: 768px) {
+    .gallery-container img, .service {
+        width: 100%;
+    }
+}
 /* Footer Styling */
 footer {
     background: #222;
@@ -421,7 +454,11 @@ footer {
     color: #555;
     line-height: 1.5;
 }
-
+@media (max-width: 768px) {
+    .facility img, .facility-info {
+        width: 100%;
+    }
+}
 /* Buttons */
 .btn {
     display: inline-block;
@@ -546,5 +583,16 @@ footer {
 
     .map-container {
         height: 250px;
+    }
+}
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .contact-container, .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-page-form, .map-section {
+        width: 100%;
     }
 }
